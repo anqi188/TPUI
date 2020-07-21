@@ -1,37 +1,37 @@
 import React from "react";
-import { Steps } from "antd";
+import { Component } from "react";
+import { Button } from "antd";
+import "./css/EvModel.less";
 
-const { Step } = Steps;
+import { EStep1 } from "./comp/CSteps";
+import { ECollapse } from "./comp/CCollapse";
+import { EvCS } from "./cont/EvCS";
+import { EvMS } from "./cont/EvMS";
 
-class Demo extends React.Component {
-  state = {
-    current: 0,
-  };
-
-  onChange = (current) => {
-    console.log("onChange:", current);
-    this.setState({ current });
-  };
-
+class Demo extends Component {
   render() {
-    const { current } = this.state;
+    const bgStyle = {
+      backgroundColor: "#fff",
+      marginTop: 40,
+      padding: "30px 30px",
+    };
     return (
-      <>
-        <Steps
-          type="navigation"
-          current={current}
-          onChange={this.onChange}
-          className="site-navigation-steps"
-        >
-          <Step status="process" title="Model and Corpus Selection" />
-          <Step status="wait" title="Model Evaluating" />
-          <Step status="wait" title="Model Performance" />
-        </Steps>
-      </>
+      <div>
+        <EStep1 />
+        <ECollapse header="Corpus Selection">
+          <EvCS />
+        </ECollapse>
+        <ECollapse header="Model Selection">
+          <EvMS />
+        </ECollapse>
+        <div className="start-ev-btn" style={bgStyle}>
+          <Button className="button" type="primary" size="large">
+            Start Evaluating
+          </Button>
+        </div>
+      </div>
     );
   }
 }
 
 export default Demo;
-
-// ReactDOM.render(<Demo />, mountNode);

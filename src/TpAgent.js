@@ -10,62 +10,62 @@ import { Divider } from "antd";
 import "./css/TpAgent.less";
 const { Header, Content, Footer } = Layout;
 
-const LdIntro = () => (
-  <div>
-    <intro>
-      <div className="intro-img">
-        <img src={Intro} alt="" />
-      </div>
-      <div className="intro-content">
-        <h1>Optimal Adaption Typing Model</h1>
-        <p>
-          The model simulates one-finger touchscreen typing behaviour as optimal
-          adaptation.
-          <br />
-          <br />
-          Please choose either of the following ways to view the model
-          performance.
-        </p>
-      </div>
-    </intro>
-    <div className="start">
-      <div style={{}}>
-        {/* <label>
-                  <i>Get started by:</i>
-                </label> */}
-      </div>
-      <div className="start-content">
-        <div className="start-btn">
-          <Button className="button" type="primary" size="large">
-            Evaluating
-          </Button>
-        </div>
-        <div className="start-intro">
-          <p>
-            Evaluating the pre-trained model with built-in or customized corpus.
-            <br />
-            The generation time for the result is quite quick.
-          </p>
-        </div>
-      </div>
-      <Divider> Or </Divider>
-      <div className="start-content">
-        <div className="start-btn">
-          <Button className="button" type="primary" size="large">
-            Training
-          </Button>
-        </div>
-        <div className="start-intro">
-          <p>
-            Training the model with parameters and keyboard configuration.
-            <br />
-            Noted that the training process can take up to 2 hours.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-);
+// const LdIntro = () => (
+//   <div>
+//     <intro>
+//       <div className="intro-img">
+//         <img src={Intro} alt="" />
+//       </div>
+//       <div className="intro-content">
+//         <h1>Optimal Adaption Typing Model</h1>
+//         <p>
+//           The model simulates one-finger touchscreen typing behaviour as optimal
+//           adaptation.
+//           <br />
+//           <br />
+//           Please choose either of the following ways to view the model
+//           performance.
+//         </p>
+//       </div>
+//     </intro>
+//     <div className="start">
+//       <div style={{}}>
+//         {/* <label>
+//                   <i>Get started by:</i>
+//                 </label> */}
+//       </div>
+//       <div className="start-content">
+//         <div className="start-btn">
+//           <Button className="button" type="primary" size="large">
+//             Evaluating
+//           </Button>
+//         </div>
+//         <div className="start-intro">
+//           <p>
+//             Evaluating the pre-trained model with built-in or customized corpus.
+//             <br />
+//             The generation time for the result is quite quick.
+//           </p>
+//         </div>
+//       </div>
+//       <Divider> Or </Divider>
+//       <div className="start-content">
+//         <div className="start-btn">
+//           <Button className="button" type="primary" size="large">
+//             Training
+//           </Button>
+//         </div>
+//         <div className="start-intro">
+//           <p>
+//             Training the model with parameters and keyboard configuration.
+//             <br />
+//             Noted that the training process can take up to 2 hours.
+//           </p>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// );
 
 class TpAgent extends Component {
   state = {};
