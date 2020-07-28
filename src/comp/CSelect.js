@@ -4,21 +4,6 @@ import { Select } from "antd";
 
 const { Option } = Select;
 
-function onChange(value) {
-  console.log(`selected ${value}`);
-}
-
-function onBlur() {
-  console.log("blur");
-}
-
-function onFocus() {
-  console.log("focus");
-}
-
-function onSearch(val) {
-  console.log("search:", val);
-}
 
 class EvCS_S1 extends Component {
   render() {
@@ -28,10 +13,6 @@ class EvCS_S1 extends Component {
         style={{ width: 200 }}
         placeholder="Select a corpus"
         optionFilterProp="children"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onSearch={onSearch}
         filterOption={(input, option) =>
           option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
         }
@@ -55,10 +36,6 @@ class EvCS_S1_d extends Component {
         style={{ width: 200 }}
         placeholder="Select a corpus"
         optionFilterProp="children"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onSearch={onSearch}
         filterOption={(input, option) =>
           option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
         }
@@ -83,10 +60,6 @@ class EvMS_S1 extends Component {
         style={{ width: 200 }}
         placeholder="Select a model"
         optionFilterProp="children"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onSearch={onSearch}
         filterOption={(input, option) =>
           option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
         }
@@ -108,13 +81,8 @@ class EvMS_S1_d extends Component {
     return (
       <Select
         showSearch
-        style={{ width: 200 }}
         placeholder="Select a model"
         optionFilterProp="children"
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onSearch={onSearch}
         filterOption={(input, option) =>
           option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
         }

@@ -6,6 +6,7 @@ import Landing from "./Landing";
 import EvModel from "./EvModel"
 import EvEvaluate from "./EvEvaluate"
 import EvEvaluate1 from "./EvEvaluate1"
+import EvResult from "./EvResult"
 
 import * as serviceWorker from "./serviceWorker";
 
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="/evaluate/model" component={EvModel} />
         <Route path="/evaluate/process" component={EvEvaluate} />
         <Route path="/evaluate/process1" component={EvEvaluate1} />
+        <Route path="/evaluate/result" component={EvResult} />
 
     </TpAgent>
   </Router>,

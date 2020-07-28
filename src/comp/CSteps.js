@@ -110,8 +110,9 @@ class EStep4 extends Component {
       <>
         <Steps
           type="navigation"
-          current={current}
-          onChange={this.onChange}
+          current={2}
+          // current={current}
+          // onChange={this.onChange}
           className="site-navigation-steps"
         >
           <Step status="finish" title="Model and Corpus Selection" />
