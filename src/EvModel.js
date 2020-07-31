@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import { Button } from "antd";
-import "./css/EvModel.less";
+import "./css/Ev/EvModel.less";
 
 import { EStep1 } from "./comp/CSteps";
 import { ECollapse } from "./comp/CCollapse";
@@ -10,11 +10,6 @@ import { EvMS } from "./cont/EvMS";
 
 class Demo extends Component {
   render() {
-    const bgStyle = {
-      backgroundColor: "#fff",
-      marginTop: 40,
-      padding: "30px 30px",
-    };
     return (
       <div>
         <EStep1 />
@@ -24,7 +19,7 @@ class Demo extends Component {
         <ECollapse header="Model Selection">
           <EvMS />
         </ECollapse>
-        <div className="start-ev-btn" style={bgStyle}>
+        <div className="start-ev-btn">
           <Button className="button" type="primary" size="large">
             Start Evaluating
           </Button>

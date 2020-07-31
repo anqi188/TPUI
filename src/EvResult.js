@@ -1,24 +1,34 @@
 import React from "react";
 import { Component } from "react";
-import "./css/EvResult.less";
+import { Button } from "antd";
+import "./css/Ev/EvResult.less";
 
 import { EStep3, EStep4 } from "./comp/CSteps";
-import { ECollapse } from "./comp/CCollapse";
+import { ECollapse, ECollapseAct } from "./comp/CCollapse";
 
 import { EvMR } from "./cont/EvMR";
 import { EvSR } from "./cont/EvSR";
+import { EvTR } from "./cont/EvTR";
 
 class EvResult extends Component {
   render() {
     return (
       <div>
         <EStep4 />
-        <ECollapse header="Main Result">
+        <ECollapseAct header="Main Result">
           <EvMR />
-        </ECollapse>
-        <ECollapse header="Sentence-level Results">
+        </ECollapseAct>
+        <ECollapseAct header="Sentence-level Results">
           <EvSR />
-        </ECollapse>
+        </ECollapseAct>
+        <ECollapseAct header="Trial-level Results">
+          <EvTR />
+        </ECollapseAct>
+        <div className="start-ev-btn">
+          <Button className="button" type="primary" size="large">
+            Save the Model
+          </Button>
+        </div>
       </div>
     );
   }

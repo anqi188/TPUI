@@ -2,8 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { Progress } from "antd";
 
-
-import "../css/CProgress.less";
+import "../css/comp/CProgress.less";
 
 class CProgress extends Component {
   render() {
@@ -15,10 +14,12 @@ class CProgress extends Component {
         }}
         percent={this.props.percent}
         status="active"
-        style={{height: '40px'}}
-      >Estimated time remaining</Progress>
+        style={{ height: "40px" }}
+      >
+        Estimated time remaining
+      </Progress>
     );
   }
 }
 
-export {CProgress};
+export { CProgress };

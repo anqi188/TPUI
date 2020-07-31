@@ -2,21 +2,21 @@ import React from "react";
 import { Component } from "react";
 import { Radio, Descriptions, Tabs } from "antd";
 import { EvCard3 } from "../comp/CCard";
-import { Statfilter, SRSelect } from "../comp/CFilter";
+import { StatfilterT, TRSelect } from "../comp/CFilter";
 import { EvCard2 } from "../comp/CCard";
 import { MRPerformance, MREye, MRFinger } from "../comp/CTable";
-import Heatmap from "../img/heatmap.png";
+import Video from "../img/Video.png";
 
-import "../css/Ev/EvSR.less";
+import "../css/Ev/EvTR.less";
 
-class SentenceD extends Component {
+class TrialD extends Component {
   render() {
     return (
-      <div className="sentenced">
-        <Descriptions title="Sentence Info" column={1}>
-          <Descriptions.Item label="Sentence ID">S12</Descriptions.Item>
+      <div className="triald">
+        <Descriptions title="Trial Info" column={1}>
+          <Descriptions.Item label="Trial ID">S8 T2</Descriptions.Item>
           <Descriptions.Item label="Content">
-            This is a demo for the model
+            This is another demo
           </Descriptions.Item>
         </Descriptions>
       </div>
@@ -24,7 +24,7 @@ class SentenceD extends Component {
   }
 }
 
-class EvSR extends Component {
+class EvTR extends Component {
   state = {
     value: 1,
   };
@@ -48,7 +48,7 @@ class EvSR extends Component {
     const { TabPane } = Tabs;
 
     return (
-      <div className="evsr" value={value}>
+      <div className="evtr" value={value}>
         <EvCard3 title="Filter">
           <Radio.Group
             className="radioG1"
@@ -60,28 +60,28 @@ class EvSR extends Component {
                 Statistic feature
               </Radio>
               <Radio style={radioStyle} value={2}>
-                Sentence
+                Trial
               </Radio>
             </div>
           </Radio.Group>
-          {value === 1 ? <Statfilter /> : <SRSelect />}
+          {value === 1 ? <StatfilterT /> : <TRSelect />}
         </EvCard3>
-        <SentenceD />
+        <TrialD />
         <Tabs defaultActiveKey="1" size="large" style={{ margin: "0 40px" }}>
           <TabPane tab="Statistic Result" key="1">
-            <EvCard2 title="Performance (average per sentence)">
+            <EvCard2 title="Performance">
               <MRPerformance />
             </EvCard2>
-            <EvCard2 title="Eye Gaze (average per sentence)">
+            <EvCard2 title="Eye Gaze">
               <MREye />
             </EvCard2>
-            <EvCard2 title="Finger Movement (average per sentence)">
+            <EvCard2 title="Finger Movement">
               <MRFinger />
             </EvCard2>
           </TabPane>
-          <TabPane tab="Heatmap" key="2">
+          <TabPane tab="Video" key="2">
             <div style={{ textAlign: "center" }}>
-              <img src={Heatmap} style={{ margin: "0 auto" }} />
+              <img src={Video} style={{ margin: "0 auto" }} />
             </div>
           </TabPane>
         </Tabs>
@@ -90,4 +90,4 @@ class EvSR extends Component {
   }
 }
 
-export { EvSR };
+export { EvTR };

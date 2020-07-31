@@ -1,14 +1,9 @@
 import React from "react";
 import { Component } from "react";
 import { EvCard2 } from "../comp/CCard";
-import {
-  MRGeneral,
-  MRPerformance,
-  MREye,
-  MRFinger
-} from "../comp/CTable";
+import { MRGeneral, MRPerformance, MREye, MRFinger } from "../comp/CTable";
 
-import "../css/EvMR.less";
+import "../css/Ev/EvMR.less";
 
 class EvMR extends Component {
   state = {};
@@ -32,4 +27,4 @@ class EvMR extends Component {
   }
 }
 
-export {EvMR};
+export { EvMR };

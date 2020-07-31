@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { Upload, message, Button } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-import "../css/CUpload.less";
+import "../css/comp/CUpload.less";
 
 const props = {
   name: "file",
@@ -25,7 +25,7 @@ const props = {
 class CUpload extends Component {
   render() {
     return (
-      <Upload className="cupload"  {...props}>
+      <Upload className="cupload" {...props}>
         <Button className="cbutton" style={{ display: "block" }}>
           <UploadOutlined /> Click to Upload
         </Button>
@@ -37,7 +37,7 @@ class CUpload extends Component {
 class CUpload_d extends Component {
   render() {
     return (
-      <Upload className="cupload"  {...props}>
+      <Upload className="cupload" {...props}>
         <Button className="cbutton" disabled style={{ display: "block" }}>
           <UploadOutlined /> Click to Upload
         </Button>

@@ -7,7 +7,7 @@ import { CUpload, CUpload_d } from "../comp/CUpload";
 import { EvTable1, EvTable2, EvTable3 } from "../comp/CTable";
 
 import Device from "../img/Device.png";
-import "../css/EvMS.less";
+import "../css/Ev/EvMS.less";
 
 class EvMS extends Component {
   state = {
@@ -66,10 +66,9 @@ class EvMS extends Component {
         <h4 style={{ marginBottom: "10px", fontWeight: "500" }}>
           Device and Keyboard
         </h4>
-        <div style ={{textAlign: 'center'}}>
-          <img src={Device} style ={{margin: '0 auto'}} />
+        <div style={{ textAlign: "center" }}>
+          <img src={Device} style={{ margin: "0 auto" }} />
         </div>
-        
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { Card, Button } from "antd";
 
-import "../css/CCard.less";
+import "../css/comp/CCard.less";
 
 class EvCard1 extends Component {
   render() {
@@ -63,4 +63,46 @@ class EvCard3 extends Component {
   }
 }
 
-export { EvCard1, EvCard2, EvCard3 };
+// without action
+class EvCard4 extends Component {
+  render() {
+    var title = (
+      <ul>
+        <li>{this.props.title}</li>
+      </ul>
+    );
+    return (
+      <Card
+        className="evcard4"
+        title={this.props.title}
+        headStyle={{ height: 63, fontSize: 20 }}
+        style={{ margin: "30px 30px", fontSize: 18 }}
+      >
+        {this.props.children}
+      </Card>
+    );
+  }
+}
+
+// without action, no margin
+class EvCard5 extends Component {
+  render() {
+    var title = (
+      <ul>
+        <li>{this.props.title}</li>
+      </ul>
+    );
+    return (
+      <Card
+        className="evcard4"
+        title={this.props.title}
+        headStyle={{ height: 63, fontSize: 20 }}
+        style={{ fontSize: 18 }}
+      >
+        {this.props.children}
+      </Card>
+    );
+  }
+}
+
+export { EvCard1, EvCard2, EvCard3, EvCard4, EvCard5 };

@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { Table } from "antd";
 
-import "../css/CTable.less";
+import "../css/comp/CTable.less";
 
 // BF
 const columnsBF = [
@@ -384,5 +384,5 @@ export {
   MRGeneral,
   MRPerformance,
   MREye,
-  MRFinger
+  MRFinger,
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 
 import { Button, Result } from "antd";
-import "./css/EvEvaluate.less";
+import "./css/Ev/EvEvaluate.less";
 
 import { EStep3, EStepV } from "./comp/CSteps";
 import { CProgress } from "./comp/CProgress";
@@ -38,7 +38,6 @@ class EvEvaluate extends Component {
             status="success"
             title="The model training is done."
             subTitle="You can now explore and analyse the result!"
-            
             style={{ fontSize: "24px" }}
           />
         </div>
