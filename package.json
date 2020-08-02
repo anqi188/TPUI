@@ -9,6 +9,8 @@
     "@testing-library/user-event": "^7.2.1",
     "antd": "^4.4.2",
     "craco-less": "^1.17.0",
+    "event": "^1.0.0",
+    "events": "^3.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",

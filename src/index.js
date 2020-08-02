@@ -9,6 +9,8 @@ import EvEvaluate1 from "./EvEvaluate1";
 import EvResult from "./EvResult";
 import TrModel from "./TrModel";
 
+import Demo from "./Mymy1";
+
 import * as serviceWorker from "./serviceWorker";
 
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
@@ -24,6 +26,7 @@ ReactDOM.render(
       <Route path="/evaluate/result" component={EvResult} />
 
       <Route path="/train/model" component={TrModel} />
+      <Route path="/my" component={Demo} />
     </TpAgent>
   </Router>,
 
