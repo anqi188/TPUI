@@ -5,11 +5,43 @@ import emitter from "../events"; //引入创建的events.js文件
 
 import "../css/Tr/TrDK.less";
 
+// To get item value by name
+function ipValue(fields, name) {
+  return fields.filter((item) => item.name[0] === name)[0].value;
+}
+
 class Key extends Component {
+  // pass the style to keyboard
+  getStyle1(fields) {
+    if (JSON.stringify(fields[0]) != undefined) {
+      let width = (ipValue(fields, "skbw") * ipValue(fields, "kbw")) / 10.0;
+      let height = (ipValue(fields, "skbh") * ipValue(fields, "kbh") + 2) / 4.0;
+
+      console.log(width, height);
+      return { width: width, height: height };
+    }
+  }
+
+  getStyle2(fields) {
+    if (JSON.stringify(fields[0]) != undefined) {
+      let width =
+        ((ipValue(fields, "skbw") * ipValue(fields, "kbw")) / 10.0) * 0.84;
+      let height =
+        ((ipValue(fields, "skbh") * ipValue(fields, "kbh") + 2) / 4.0) * 0.81;
+
+      console.log(width, height);
+      return { width: width, height: height };
+    }
+  }
+
   render() {
+    const fields = this.props.fields;
+    const stylePara1 = this.getStyle1(fields);
+    const stylePara2 = this.getStyle2(fields);
+
     return (
-      <div className="key">
-        <div className="keycap">
+      <div className="key" style={stylePara1}>
+        <div className="keycap" style={stylePara2}>
           <div className="keytext">{this.props.letter}</div>
         </div>
       </div>
@@ -18,17 +50,40 @@ class Key extends Component {
 }
 
 class SpaceKey extends Component {
+  getStyle1(fields) {
+    if (JSON.stringify(fields[0]) != undefined) {
+      let width =
+        ((ipValue(fields, "skbw") * ipValue(fields, "kbw")) / 10.0) * 4;
+      let height = (ipValue(fields, "skbh") * ipValue(fields, "kbh") + 2) / 4.0;
+
+      console.log(width, height);
+      return { width: width, height: height };
+    }
+  }
+
+  getStyle2(fields) {
+    if (JSON.stringify(fields[0]) != undefined) {
+      let width =
+        ((ipValue(fields, "skbw") * ipValue(fields, "kbw")) / 10.0) * 4 - 6;
+      let height =
+        ((ipValue(fields, "skbh") * ipValue(fields, "kbh") + 2) / 4.0) * 0.81;
+
+      console.log(width, height);
+      return { width: width, height: height };
+    }
+  }
+
   render() {
+    const fields = this.props.fields;
+    const stylePara1 = this.getStyle1(fields);
+    const stylePara2 = this.getStyle2(fields);
+
     return (
-      <div className="space">
-        <div className="spacecap"></div>
+      <div className="space" style={stylePara1}>
+        <div className="spacecap" style={stylePara2}></div>
       </div>
     );
   }
-}
-
-function ipValue(fields, name) {
-  return fields.filter((item) => item.name[0] === name)[0].value;
 }
 
 class MyKeyboard extends Component {
@@ -50,7 +105,7 @@ class MyKeyboard extends Component {
       }
 
       const keyItems = rowData.map((k) => (
-        <Key key={k.index} letter={k.letter} />
+        <Key key={k.index} letter={k.letter} fields={fields} />
       ));
 
       return <div className="board-row">{keyItems}</div>;
@@ -58,24 +113,32 @@ class MyKeyboard extends Component {
   }
 
   renderSpace() {
+    var fields = this.props.fields;
     return (
       <div className="board-row">
-        <SpaceKey />
+        <SpaceKey fields={fields} />
       </div>
     );
   }
 
-  render() {
-    // const fields = this.props.fields;
-    // console.log(fields);
-    return (
-      <div className="keyboard">
-        {/* {this.renderKey(0)} */}
-        {this.renderKey("nk3", "lt3")}
+  // pass the style to keyboard
+  getStyle(fields) {
+    if (JSON.stringify(fields[0]) != undefined) {
+      let width = ipValue(fields, "skbw") * ipValue(fields, "kbw");
+      let height = ipValue(fields, "skbh") * ipValue(fields, "kbh");
+      return { width: width, height: height, visibility: "visible" };
+    }
+  }
 
-        {/* {this.renderKey("nk1", "lt1")}
+  render() {
+    const fields = this.props.fields;
+    const stylePara = this.getStyle(fields);
+
+    return (
+      <div className="keyboard" style={stylePara}>
+        {this.renderKey("nk1", "lt1")}
         {this.renderKey("nk2", "lt2")}
-        {this.renderKey("nk3", "lt3")} */}
+        {this.renderKey("nk3", "lt3")}
 
         {this.renderSpace()}
       </div>
@@ -109,11 +172,20 @@ class Device extends Component {
     });
   }
 
+  getStyle(fields) {
+    if (JSON.stringify(fields[0]) != undefined) {
+      let width = ipValue(fields, "dvw");
+      let height = ipValue(fields, "dvh");
+      return { width: width, height: height, visibility: "visible" };
+    }
+  }
+
   render() {
     const { fields } = this.state;
-    // console.log(fields);
+    const stylePara = this.getStyle(fields);
+
     return (
-      <div className="device">
+      <div className="device" style={stylePara}>
         <div className="board-row">
           <MyKeyboard fields={fields} />
         </div>

@@ -12,43 +12,34 @@ import { TrDS } from "./cont/TrDS";
 import { TrKS } from "./cont/TrKS";
 import { TrDK } from "./cont/TrDK";
 
+import devicePara from "./data/iP11Pro";
+
 import PropTypes from "prop-types";
 import emitter from "./events"; //引入创建的events.js文件
 
 class TrModel extends Component {
   state = {
-    fields: [
-      {
-        name: ["nk1"],
-        value: 10,
-      },
-      {
-        name: ["lt1"],
-        value: "QWERTYUIOP",
-      },
-      {
-        name: ["nk2"],
-        value: 9,
-      },
-      {
-        name: ["lt2"],
-        value: "ASDFGHJKL",
-      },
-      {
-        name: ["nk3"],
-        value: 7,
-      },
-      {
-        name: ["lt3"],
-        value: "ZXCVBNM",
-      },
-    ],
+    // from object to array
+    fields: Object.values(devicePara)[0],
   };
 
-  // Keyboard setting values pass to here (onChange):
+  // Keyboard setting values pass to here (onChange)
+  // !IMPORTANT: Partially update
   setFields = (newFields) => {
-    this.setState({
-      fields: newFields,
+    // this.setState({
+    //   fields: newFields,
+    // });
+    newFields.forEach((element) => {
+      let name = element.name[0];
+      let value = element.value;
+
+      this.setState((prevState) => ({
+        fields: prevState.fields.map((el) =>
+          el.name[0] === name ? { ...el, value } : el
+        ),
+      }));
+
+      // console.log(element, name, value);
     });
   };
 

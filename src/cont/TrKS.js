@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Component } from "react";
 import { Col, Row, InputNumber, Input } from "antd";
-import { Divider, Form } from "antd";
+import { Divider, Form, Descriptions } from "antd";
 import { TrKS_S1 } from "../comp/CSelect";
 import { CRow, CRowV, AKOAdd } from "../comp/CConfig";
 import { TCollapseMin } from "../comp/CCollapse";
@@ -23,13 +23,12 @@ class AKO1 extends Component {
           name="control-ref"
           fields={fields}
           onFieldsChange={(changedFields, allFields) => {
-            onChange(allFields);
+            onChange(changedFields);
           }}
         >
           <Row id="r1">
             <Col className="akocol" span={4}>
               <label>Row 1</label>
-              {/* <Form.Item name="row1" label="Row 1"></Form.Item> */}
             </Col>
             <Col className="akocol" span={8}>
               <Form.Item
@@ -42,12 +41,11 @@ class AKO1 extends Component {
                   },
                 ]}
               >
-                <Input
-                  // defaultValue={10}
+                <InputNumber
                   size="large"
                   style={{ margin: "auto 20px", width: 100 }}
                   min={1}
-                  max={1}
+                  max={11}
                   placeholder={10}
                 />
               </Form.Item>
@@ -79,7 +77,6 @@ class AKO1 extends Component {
           <Row id="r2">
             <Col className="akocol" span={4}>
               <label>Row 2</label>
-              {/* <Form.Item name="row1" label="Row 1"></Form.Item> */}
             </Col>
             <Col className="akocol" span={8}>
               <Form.Item
@@ -92,8 +89,7 @@ class AKO1 extends Component {
                   },
                 ]}
               >
-                <Input
-                  // defaultValue={9}
+                <InputNumber
                   size="large"
                   style={{ margin: "auto 20px", width: 100 }}
                   min={1}
@@ -114,7 +110,6 @@ class AKO1 extends Component {
                 ]}
               >
                 <Input
-                  // defaultValue={"ASDFGHJKL"}
                   size="large"
                   style={{ margin: "0px 20px", width: 200 }}
                   min={1}
@@ -129,7 +124,6 @@ class AKO1 extends Component {
           <Row id="r3">
             <Col className="akocol" span={4}>
               <label>Row 3</label>
-              {/* <Form.Item name="row1" label="Row 1"></Form.Item> */}
             </Col>
             <Col className="akocol" span={8}>
               <Form.Item
@@ -142,8 +136,7 @@ class AKO1 extends Component {
                   },
                 ]}
               >
-                <Input
-                  defaultValue={7}
+                <InputNumber
                   size="large"
                   style={{ margin: "auto 20px", width: 100 }}
                   min={1}
@@ -187,6 +180,100 @@ AKO1.contextTypes = {
   onChange: PropTypes.func,
 };
 
+class KBD extends Component {
+  formRef = React.createRef();
+  render() {
+    const { fields, onChange } = this.context; // 获取context的值
+
+    // console.log(fields);
+
+    return (
+      <div className="kbd">
+        <Form
+          layout="vertical"
+          ref={this.formRef}
+          name="control-ref"
+          fields={fields}
+          onFieldsChange={(changedFields, allFields) => {
+            onChange(changedFields);
+          }}
+        >
+          <Row className="kbdinfo">
+            <Col span={8}>
+              <Form.Item name="skbw" label="Standard Keyboard Width (skbW)">
+                375 <span>&nbsp;px</span>
+                <label></label>
+                {/* {this.props.skbW} */}
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item name="skbh" label="Standard Keyboard Height (skbH)">
+                206 <span>&nbsp;px</span>
+                <label></label>
+                {/* {this.props.skbW} */}
+              </Form.Item>
+            </Col>
+          </Row>
+
+          <div style={{ display: "none" }}>
+            <Form.Item name="dvh">812</Form.Item>
+            <Form.Item name="dvw">375</Form.Item>
+          </div>
+
+          <Row className="kbd1">
+            <Col span={8}>
+              <Form.Item label="Keyboard Width ">
+                <span className="range">Range: 0.8 - 1 </span>
+                <div style={{ textAlign: "center" }}>
+                  <Form.Item name="kbw" className="itemip">
+                    <InputNumber
+                      size="large"
+                      style={{ margin: "auto 0px", width: 100 }}
+                      step={0.01}
+                      min={0.8}
+                      max={1}
+                      placeholder={1}
+                    />
+                  </Form.Item>
+                  <div className="suffix">
+                    <i>X skbW</i>
+                  </div>
+                </div>
+              </Form.Item>
+            </Col>
+
+            <Col span={8}>
+              <Form.Item label="Keyboard Height ">
+                <span className="range">Range: 0.8 - 1.6 </span>
+                <div style={{ textAlign: "center" }}>
+                  <Form.Item name="kbh" className="itemip">
+                    <InputNumber
+                      size="large"
+                      style={{ margin: "auto 0px", width: 100 }}
+                      step={0.01}
+                      min={0.8}
+                      max={1.6}
+                      placeholder={1}
+                    />
+                  </Form.Item>
+                  <div className="suffix">
+                    <i>X skbH</i>
+                  </div>
+                </div>
+              </Form.Item>
+            </Col>
+          </Row>
+        </Form>
+      </div>
+    );
+  }
+}
+
+KBD.contextTypes = {
+  fields: PropTypes.array,
+  onChange: PropTypes.func,
+};
+
 class TrKS extends Component {
   render() {
     return (
@@ -197,6 +284,9 @@ class TrKS extends Component {
         <TCollapseMin header="Advanced">
           <CRowV className="myako" title="Alphabetical Key Order">
             <AKO1 />
+          </CRowV>
+          <CRowV className="myako" title="Keyboard Dimension">
+            <KBD />
           </CRowV>
         </TCollapseMin>
       </div>
