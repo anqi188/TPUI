@@ -12,6 +12,7 @@ import { EvCard1 } from "./comp/CCard";
 class EvEvaluate extends Component {
   state = {
     checked: false,
+    modelProc: " ",
   };
 
   onChange = (e) => {
@@ -19,6 +20,10 @@ class EvEvaluate extends Component {
     this.setState({
       checked: !this.state.checked,
     });
+  };
+
+  handleClickEvR = () => {
+    this.props.history.push("/evaluate/result");
   };
 
   render() {
@@ -51,7 +56,7 @@ class EvEvaluate extends Component {
           </h4>
           <div className="evprocess">
             <EStepV />
-            <EvCard1 />
+            <EvCard1 content={<p>{this.state.modelProc}</p>} />
           </div>
           <Checkbox
             onChange={this.onChange}
@@ -75,14 +80,22 @@ class EvEvaluate extends Component {
             )}
           </Checkbox>
         </div>
-        <div className="start-ev-btn" style={bgStyle}>
-          <Button className="button" type="primary" size="large" disabled>
-            Check Results
-          </Button>
+        <div style={bgStyle}>
+          <div className="check-result-btn">
+            <Button
+              className="button"
+              type="primary"
+              size="large"
+              disabled
+              onClick={this.handleClickEvR}
+            >
+              Check Results
+            </Button>
 
-          <Button className="button" size="large">
-            Cancel
-          </Button>
+            <Button className="button" size="large">
+              Cancel
+            </Button>
+          </div>
         </div>
       </div>
     );

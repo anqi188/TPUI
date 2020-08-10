@@ -9,8 +9,7 @@ class EvCard1 extends Component {
     return (
       <Card style={{ width: "85%", height: 450, fontSize: 18 }}>
         <p>The model training message will be presented here......</p>
-        <p>The model training message will be presented here......</p>
-        <p>The model training message will be presented here......</p>
+        <p>{this.props.content}</p>
       </Card>
     );
   }

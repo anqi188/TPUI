@@ -10,6 +10,7 @@ import "../css/Ev/EvCS.less";
 class EvCS extends Component {
   state = {
     value: 1,
+    sentence: "",
   };
 
   onChange = (e) => {
@@ -17,6 +18,11 @@ class EvCS extends Component {
     this.setState({
       value: e.target.value,
     });
+  };
+
+  onChangeSts = (e) => {
+    console.log(e.target.value);
+    this.setState({ sentence: e.target.value });
   };
 
   render() {
@@ -64,6 +70,8 @@ class EvCS extends Component {
               placeholder="Input one sentence to evaluate"
               size="large"
               style={style1}
+              // value={this.state.sentence || ""}
+              onChange={this.props.onChangeSts}
             />
           ) : (
             <Input

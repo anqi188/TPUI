@@ -84,6 +84,9 @@ class TpAgent extends Component {
             </div>
             <ul className="nav-item">
               <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
                 <a href="#">Contact</a>
               </li>
               <li>

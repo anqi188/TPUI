@@ -8,6 +8,10 @@ import { EStep3, EStepV } from "./comp/CSteps";
 import { CProgress } from "./comp/CProgress";
 
 class EvEvaluate extends Component {
+  handleClickEvR = () => {
+    this.props.history.push("/evaluate/result");
+  };
+
   render() {
     const checkStyle = {
       marginTop: 20,
@@ -41,13 +45,20 @@ class EvEvaluate extends Component {
             style={{ fontSize: "24px" }}
           />
         </div>
-        <div className="start-ev-btn" style={bgStyle}>
-          <Button className="button" type="primary" size="large">
-            Check Results
-          </Button>
-          <Button className="button" size="large">
-            Cancel
-          </Button>
+        <div style={bgStyle}>
+          <div className="check-result-btn">
+            <Button
+              className="button"
+              type="primary"
+              size="large"
+              onClick={this.handleClickEvR}
+            >
+              Check Results
+            </Button>
+            <Button className="button" size="large">
+              Cancel
+            </Button>
+          </div>
         </div>
       </div>
     );
